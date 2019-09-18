@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 public class AddBookFragment  extends Fragment {
 
-    View view;
+    private View view;
 
     private EditText title;
     private EditText author;
@@ -54,24 +54,5 @@ public class AddBookFragment  extends Fragment {
 
         // get the reference of Button
         return view;
-    }
-
-    public void addBook(View view){
-        DBHelper dbHandler = new DBHelper(getContext());
-
-        //int id = Integer.parseInt(studentid.getText().toString());
-
-        String name = title.getText().toString();
-        String auth = author.getText().toString();
-        Genre genre = Genre.get(genres.getSelectedItem().toString());
-
-
-        Book book = new Book(name, auth, genre);
-
-        dbHandler.addHandler(book);
-
-        author.setText("");
-
-        title.setText("");
     }
 }

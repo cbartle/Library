@@ -1,10 +1,12 @@
 package com.cbartley.library;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -37,6 +39,16 @@ public class BookList extends Fragment {
         BookAdapter adapter = new BookAdapter(getContext(), books);
 
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Book book = (Book) listView.getItemAtPosition(position);
+
+                Intent intent = new Intent(getContext(), Details.class).putExtra("Title", book.GetTitle());
+                intent.putExtra("Author", book.GetAuthor());
+                startActivity(intent);
+            }
+        });
 
 
         // get the reference of Button

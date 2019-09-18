@@ -98,15 +98,4 @@ public class DBHelper extends SQLiteOpenHelper {
     //Edit
     //public boolean updateHandler(int ID, String name) {}
 
-    private List<Book> GetFakeBooks(){
-        List<Book> books = new ArrayList<Book>();
-
-        int i = 0;
-        while( i < 11){
-            books.add(new Book("Test Title " + Integer.toString(i), "Test Author " + Integer.toString(i), Genre.Action));
-            i++;
-
-        }
-        return books;
-    }
 }
